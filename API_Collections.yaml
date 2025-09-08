@@ -1,0 +1,289 @@
+type: collection.insomnia.rest/5.0
+name: w2s Project
+meta:
+  id: wrk_d97c8b1428db4dcea4969b64565145d6
+  created: 1757336364995
+  modified: 1757336364995
+  description: ""
+collection:
+  - name: Auth
+    meta:
+      id: fld_c8de85be83b847448275442efe56c62d
+      created: 1757336651997
+      modified: 1757336651997
+      sortKey: -1757336651997
+      description: ""
+    children:
+      - url: "{{ _.localHost }}/api/auth/register"
+        name: Create User
+        meta:
+          id: req_4307a84506384a54803cf21efd9ee60f
+          created: 1757336397853
+          modified: 1757339571209
+          isPrivate: false
+          description: ""
+          sortKey: -1757336667446
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "name": "Anand",
+              "email": "anand@guvi.in"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.localHost }}/api/auth/login"
+        name: Login
+        meta:
+          id: req_7fbfd0444fb241a6ad9fa0656a23d473
+          created: 1757336608136
+          modified: 1757341276436
+          isPrivate: false
+          description: ""
+          sortKey: -1757336667546
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+            "email": "anand@guvi.in",
+            	"password": "Admin@123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.localHost }}/api/auth/verify-otp"
+        name: Verify OTP
+        meta:
+          id: req_ba30ab33e8a14fbbbf1e1fc14ecd5679
+          created: 1757340476174
+          modified: 1757341012490
+          isPrivate: false
+          description: ""
+          sortKey: -1756902422225.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "otp": "320534",
+              "email": "anand@guvi.in",
+            	"password": "Anand@2507"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.localHost }}/api/auth/forgot-password"
+        name: Forget password
+        meta:
+          id: req_4c18341b929a433e90177fda46fd6347
+          created: 1757341037158
+          modified: 1757341125470
+          isPrivate: false
+          description: ""
+          sortKey: -1756685299615.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+
+              "email": "anand@guvi.in"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.localHost }}/api/auth/reset-password"
+        name: Set Password
+        meta:
+          id: req_41fcd932d9114530aae60434526c3b6a
+          created: 1757341202256
+          modified: 1757341259293
+          isPrivate: false
+          description: ""
+          sortKey: -1756793860920.375
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "otp": "867942",
+              "email": "anand@guvi.in",
+            	"newPassword": "Admin@123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: User
+    meta:
+      id: fld_6dae7c664cee4eb4b55ad1133036cd41
+      created: 1757336736442
+      modified: 1757336736442
+      sortKey: -1757336736442
+      description: ""
+    children:
+      - url: "{{ _.localHost }}/api/user/profile"
+        name: Get User Profile
+        meta:
+          id: req_aa65e4074c4548529ee88df4310d95f7
+          created: 1757336749911
+          modified: 1757336870908
+          isPrivate: false
+          description: ""
+          sortKey: -1757336749911
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.5.0
+            id: pair_c136570331e64e0585af2a0e68a5fce7
+          - id: pair_aa033a10b6374ff7bac3f94430824180
+            name: Authorization
+            value: Bearer {{ _.AuthToken }}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.localHost }}/api/user/update-email"
+        name: Update User Email
+        meta:
+          id: req_182d42bea193489598fc28cd76e6deda
+          created: 1757336883995
+          modified: 1757337190698
+          isPrivate: false
+          description: ""
+          sortKey: -1757336708728.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "newEmail": "marty@example.com"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+            id: pair_c136570331e64e0585af2a0e68a5fce7
+          - id: pair_aa033a10b6374ff7bac3f94430824180
+            name: Authorization
+            value: Bearer {{ _.AuthToken }}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.localHost }}/api/user/update-profile"
+        name: Update User Profile
+        meta:
+          id: req_56ab9d0abfde410bbb9a6b3af5cb3498
+          created: 1757337091987
+          modified: 1757337126447
+          isPrivate: false
+          description: ""
+          sortKey: -1757336688137.25
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "name": "Anand"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+            id: pair_c136570331e64e0585af2a0e68a5fce7
+          - id: pair_aa033a10b6374ff7bac3f94430824180
+            name: Authorization
+            value: Bearer {{ _.AuthToken }}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b3767564feae6b3285c5ab01f4e0adb113f0a769
+    created: 1757336364997
+    modified: 1757336364997
+environments:
+  name: Base Environment
+  meta:
+    id: env_b3767564feae6b3285c5ab01f4e0adb113f0a769
+    created: 1757336364996
+    modified: 1757336828523
+    isPrivate: false
+  data:
+    localHost: http://localhost:8080
+    AuthToken: YOUR_AUTH_TOKEN
