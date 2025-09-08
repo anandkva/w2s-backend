@@ -286,4 +286,5 @@ environments:
     isPrivate: false
   data:
     localHost: http://localhost:8080
+    liveHost: https://w2s-backend.onrender.com
     AuthToken: YOUR_AUTH_TOKEN

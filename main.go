@@ -9,6 +9,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func main() {
@@ -18,6 +20,11 @@ func main() {
 	database.Connect()
 
 	r := gin.Default()
+
+	r.StaticFile("/swagger.json", "./docs/swagger.json")
+
+	url := ginSwagger.URL("/swagger.json")
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	routes.UserRoutes(r)
 	routes.AuthRoutes(r)
