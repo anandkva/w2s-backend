@@ -9,7 +9,7 @@ This is a backend service built with **Go (Gin + MongoDB)** for user authenticat
 - User Profile Management (view, update profile, update email)
 
 ## 📂 API Documentation
-- Importable collection: [API Collection](./API_Collections.yaml)
+- Importable collection: [API Collection](./docs/API_Collections.yaml)
 - Swagger UI: [https://w2s-backend.onrender.com/swagger/index.html](https://w2s-backend.onrender.com/swagger/index.html)  
 - Swagger Spec: [swagger.json](./docs/swagger.json)
 
