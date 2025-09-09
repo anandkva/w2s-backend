@@ -16,6 +16,7 @@
   "paths": {
     "/api/auth/register": {
       "post": {
+        "tags": ["AUTH"],
         "summary": "Register User",
         "requestBody": {
           "required": true,
@@ -43,6 +44,7 @@
     },
     "/api/auth/login": {
       "post": {
+        "tags": ["AUTH"],
         "summary": "Login",
         "requestBody": {
           "required": true,
@@ -79,6 +81,7 @@
     },
     "/api/auth/verify-otp": {
       "post": {
+        "tags": ["AUTH"],
         "summary": "Verify OTP",
         "requestBody": {
           "required": true,
@@ -104,6 +107,7 @@
     },
     "/api/auth/forgot-password": {
       "post": {
+        "tags": ["AUTH"],
         "summary": "Forgot Password",
         "requestBody": {
           "required": true,
@@ -127,6 +131,8 @@
     },
     "/api/auth/reset-password": {
       "post": {
+                "tags": ["AUTH"],
+
         "summary": "Reset Password",
         "requestBody": {
           "required": true,
@@ -152,16 +158,27 @@
     },
     "/api/user/profile": {
       "get": {
+                "tags": ["USER"],
+
         "summary": "Get User Profile",
-        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer yourAuthToken"
+            },
+            "description": "JWT token for authorization"
+          }
+        ],
         "responses": {
           "200": {
             "description": "User profile retrieved",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
+                "schema": { "$ref": "#/components/schemas/User" }
               }
             }
           },
@@ -171,8 +188,21 @@
     },
     "/api/user/update-email": {
       "put": {
+                "tags": ["USER"],
+
         "summary": "Update User Email",
-        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer yourAuthToken"
+            },
+            "description": "JWT token for authorization"
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -195,8 +225,20 @@
     },
     "/api/user/update-profile": {
       "put": {
+        "tags": ["USER"],
         "summary": "Update User Profile",
-        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer yourAuthToken"
+            },
+            "description": "JWT token for authorization"
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
