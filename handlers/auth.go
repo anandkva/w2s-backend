@@ -75,10 +75,10 @@ func ForgotPassword(c *gin.Context) {
 
 	otp := utils.GenerateOTP()
 
-	if err := utils.SendOTPEmail(req.Email, otp); err != nil {
-		utils.SendError(c, http.StatusInternalServerError, "failed to send OTP")
-		return
-	}
+	// if err := utils.SendOTPEmail(req.Email, otp); err != nil {
+	// 	utils.SendError(c, http.StatusInternalServerError, "failed to send OTP")
+	// 	return
+	// }
 
 	if err := utils.SaveOTP(req.Email, otp); err != nil {
 		utils.SendError(c, http.StatusInternalServerError, "failed to save OTP")

@@ -15,9 +15,9 @@ func RegisterUser(name, email string) error {
 		return errors.New("email already exists")
 	}
 	otp := utils.GenerateOTP()
-	// if err := utils.SendOTPEmail(email, otp); err != nil {
-	// 	return errors.New("failed to send OTP")
-	// }
+	if err := utils.SendOTPEmail(email, otp); err != nil {
+		return errors.New("failed to send OTP")
+	}
 	user := models.User{
 		UserID:   utils.NewUUID(),
 		Name:     name,

@@ -7,10 +7,10 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080"
+      "url": "https://w2s-backend.onrender.com"
     },
     {
-      "url": "https://w2s-backend.onrender.com"
+      "url": "http://localhost:8080"
     }
   ],
   "paths": {
@@ -33,7 +33,9 @@
           }
         },
         "responses": {
-          "200": { "description": "OTP sent to email. Verify to complete registration" },
+          "200": {
+            "description": "OTP sent to email. Verify to complete registration"
+          },
           "400": { "description": "Invalid request" },
           "409": { "description": "Email already exists" }
         }
